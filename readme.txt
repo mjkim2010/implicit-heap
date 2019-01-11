@@ -2,6 +2,9 @@ File: readme.txt
 Author: Minju Kim
 ----------------------
 
+Overall, I implemented a heap allocator that supports a very compact use of memory and low overhead in C. On average, both implicit and explicit implementations achieved memory usage efficiencies of 80%.
+
+
 implicit.c
 --------
 For my implicit allocator, I utilized a "best fit" algorithm to search for free blocks. To implement this, I created a struct that would hold two parameters: a ptr to the payload of a block and the size of said block (as indicated by its header). I then iterated through the heap, comparing the "best fit block" and the "current block" to see which free block provided a closer fit to the requestedsz, and updated "best fit block" accordingly. I thought using a "best fit" algorithm would maximize the utilization of implicit, because it does not utilize other efficiency-boosting features such as coalescing or in-place realloc.
